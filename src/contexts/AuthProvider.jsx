@@ -1,6 +1,7 @@
 // External Libraries
 import { ReactNode, useState } from "react";
 import PropTypes from "prop-types";
+import * as SecureStore from "expo-secure-store";
 
 // Internal Components
 import { AuthContext } from "./AuthContext.js";
@@ -34,7 +35,7 @@ const AuthProvider = ({ children }) => {
      */
     const checkAuthStatus = async () => {
         try {
-            const response = await axiosInstance.get("/check_auth_status/");
+            const response = await axiosInstance.get("/auth/check_auth_status");
             setUser(response.data);
         } catch (err) {
             console.error(err);
@@ -54,7 +55,8 @@ const AuthProvider = ({ children }) => {
      */
     const login = async (credentials) => {
         try {
-            await axiosInstance.post("/login/", credentials);
+            const response = await axiosInstance.post("/auth/login", credentials);
+            await SecureStore.setItemAsync("sessionToken", response.data);
             await checkAuthStatus();
             return true;
         } catch (err) {
@@ -76,7 +78,7 @@ const AuthProvider = ({ children }) => {
      */
     const register = async (credentials) => {
         try {
-            await axiosInstance.post("/register/", credentials);
+            await axiosInstance.post("/auth/register", credentials);
             await login(credentials);
             return true;
         } catch (err) {
@@ -96,7 +98,7 @@ const AuthProvider = ({ children }) => {
      */
     const logout = async () => {
         try {
-            await axiosInstance.post("/logout/");
+            await axiosInstance.post("/auth/logout");
             setUser(null);
         } catch (err) {
             console.error(err);

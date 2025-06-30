@@ -1,6 +1,6 @@
 // External Libraries
 import { useEffect, useState } from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text } from "react-native";
 
 // Internal Utilities
 import axiosInstance from "@/utils/axiosInstance";
@@ -29,10 +29,16 @@ const HomeScreen = ({ navigation }) => {
             <Text style={ styles.title }>
                 Indigrow
             </Text>
+
             { jobs.map((job, index) => (
-                <Text key={ index }>
-                    { job.name }
-                </Text>
+                <View style={ styles.card } key={ index }>
+                    <Text>
+                        { job.title }
+                    </Text>
+                    <Text>
+                        { job.description }
+                    </Text>
+                </View>
             )) }
         </View>
     );

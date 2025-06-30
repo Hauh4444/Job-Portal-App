@@ -1,6 +1,3 @@
-// External Libraries
-import { NavigationContainer } from "@react-navigation/native";
-
 // Internal Contexts
 import AuthProvider from "@/contexts/AuthProvider";
 
@@ -11,9 +8,7 @@ import AppNavigator from "@/navigation/AppNavigator";
 const App = () => {
     return (
         <AuthProvider>
-            <NavigationContainer>
-                <AppNavigator />
-            </NavigationContainer>
+            <AppNavigator />
         </AuthProvider>
     );
 }
