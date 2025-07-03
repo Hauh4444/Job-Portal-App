@@ -42,21 +42,23 @@ const AuthScreen = ({ navigation }) => {
                     onChangeText={ (value) => handleChange("username", value) }
                     value={ info.username }
                     placeholder="Username"
+                    placeholderTextColor="#6B7280"
                 />
                 <TextInput
                     style={ styles.input }
                     onChangeText={ (value) => handleChange("password", value) }
                     value={ info.password }
                     placeholder="Password"
+                    placeholderTextColor="#6B7280"
                     secureTextEntry={ true }
                 />
 
                 <Pressable onPress={ () => handleSubmit() }>
                     <LinearGradient
+                        style={ styles.button }
                         colors={ ["#7C3AED", "#6366F1"] }
                         start={{ x: 0, y: 0 }}
                         end={{ x: 1, y: 0 }}
-                        style={ styles.button }
                     >
                         <Text style={ styles.buttonText }>SIGN IN</Text>
                     </LinearGradient>

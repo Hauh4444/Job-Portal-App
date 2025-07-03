@@ -32,7 +32,7 @@ const AppNavigator = () => {
 
     return (
         <NavigationContainer>
-            {user ? <ProtectedStack /> : <PublicStack />}
+            { user ? <ProtectedStack /> : <PublicStack /> }
         </NavigationContainer>
     );
 };

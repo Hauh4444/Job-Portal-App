@@ -5,7 +5,6 @@ import { StyleSheet } from "react-native";
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
         backgroundColor: "#FFFFFF",
     },
     card: {
@@ -15,13 +14,26 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         backgroundColor: "#F9FAFB",
     },
-    title: {
-        marginVertical: 24,
-        textAlign: "center",
-        color: "#0F0F0F",
-        fontSize: 24,
-        fontWeight: "600",
-        letterSpacing: 1.2,
+    searchBarContainer: {
+        width: "100%",
+        paddingHorizontal: 8,
+        backgroundColor: "#F9FAFB",
+        shadowColor: "#111827",
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 5,
+        elevation: 4,
+    },
+    searchBarInputContainer: {
+        backgroundColor: "#F9FAFB",
+        borderRadius: 8,
+    },
+    searchBarInput: {
+        color: "#111827",
+    },
+    categoryScroll: {
+        paddingVertical: 8,
+        paddingLeft: 10,
     },
 });
 

@@ -23,6 +23,15 @@ A mobile-first job portal application built with React Native, designed to conne
 
 - **Storage:** SecureStorage
 
+## Screenshots
+
+### Light Theme
+
+Click to view:
+- [Auth Page](./screenshots/light-theme/auth-page.png)
+- [Home Page](./screenshots/light-theme/home-page.png)
+- [Job Page](./screenshots/light-theme/job-page.png)
+
 ## Prerequisites
 
 - Node.js v16 or higher
