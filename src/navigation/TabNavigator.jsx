@@ -38,9 +38,9 @@ const TabNavigator = () => (
             };
         }}
     >
-        {tabs.map(({ name, component }) => (
+        { tabs.map(({ name, component }) => (
             <Tab.Screen key={ name } name={ name } component={ component } />
-        ))}
+        )) }
     </Tab.Navigator>
 );
 

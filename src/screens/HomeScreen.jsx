@@ -23,7 +23,8 @@ import styles from "./HomeScreen.styles";
  * @property { string } workModel - Work model (e.g. Remote, On-Site, Hybrid)
  * @property { number } salaryMin - Minimum salary offered
  * @property { number } salaryMax - Maximum salary offered
- * @property { string } description - Job description/details
+ * @property { string } descriptionShort - Short job description/details
+ * @property { string } descriptionLong - Longer job description/details
  * @property { string[] } requirements - List of job requirements
  * @property { string[] } responsibilities - List of responsibilities
  * @property { Date } createdAt - Creation date of the job posting
@@ -41,18 +42,10 @@ const HomeScreen = ({ navigation }) => {
     const categories= ["All", "Full-time", "Part-time", "Contract", "Remote", "On-Site", "Hybrid"];
 
 
-    /**
-     * Fetches job listings from the API and updates the jobs state.
-     *
-     * @async
-     * @function fetchData
-     * @returns { Promise<void >} Resolves when jobs are successfully fetched and set.
-     * @throws Error Will log an error to the console if the fetch fails.
-     */
     const fetchData = async () => {
-        const res = await axiosInstance.get("/jobs");
-        setJobs(res.data);
-        setFilteredJobs(res.data);
+        const response = await axiosInstance.get("/jobs");
+        setJobs(response.data);
+        setFilteredJobs(response.data);
     }
 
 
@@ -67,7 +60,7 @@ const HomeScreen = ({ navigation }) => {
         const filtered = jobs.filter(job => {
             const matchesQuery = query
                 ? job.title.toLowerCase().includes(query) ||
-                job.description.toLowerCase().includes(query)
+                job.descriptionShort.toLowerCase().includes(query)
                 : true;
 
             const matchesCategory = selectedCategory !== "All"
@@ -121,7 +114,7 @@ const HomeScreen = ({ navigation }) => {
             )) }
         </ScrollView>
     );
-}
+};
 
 
 export default HomeScreen;

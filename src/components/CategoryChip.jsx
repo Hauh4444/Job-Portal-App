@@ -23,8 +23,8 @@ const CategoryChip = ({ category, selected, onPress }) => {
                 { category }
             </Text>
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 
 export default CategoryChip;

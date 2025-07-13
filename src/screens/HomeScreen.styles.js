@@ -7,13 +7,6 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: "#FFFFFF",
     },
-    card: {
-        width: "100%",
-        padding: 24,
-        borderColor: "#E5E7EB",
-        borderWidth: 1,
-        backgroundColor: "#F9FAFB",
-    },
     searchBarContainer: {
         width: "100%",
         paddingHorizontal: 8,

@@ -21,7 +21,7 @@ const JobCard = ({ job }) => {
                 ${ job.salaryMin.toLocaleString() } - ${ job.salaryMax.toLocaleString() }
             </Text>
             <Text numberOfLines={ 3 } style={ styles.description }>
-                { job.description }
+                { job.descriptionShort }
             </Text>
         </View>
     );

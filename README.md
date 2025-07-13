@@ -30,7 +30,9 @@ A mobile-first job portal application built with React Native, designed to conne
 Click to view:
 - [Auth Page](./screenshots/light-theme/auth-page.png)
 - [Home Page](./screenshots/light-theme/home-page.png)
-- [Job Page](./screenshots/light-theme/job-page.png)
+- [Job Page](./screenshots/light-theme/job-page1.png)
+- [Job Page Continued 1](./screenshots/light-theme/job-page2.png)
+- [Job Page Continued 2](./screenshots/light-theme/job-page3.png)
 
 ## Prerequisites
 

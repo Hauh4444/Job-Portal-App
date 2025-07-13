@@ -72,6 +72,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#6B7280",
     },
+    description: {
+        marginVertical: 10,
+        fontWeight: "normal",
+        fontSize: 16,
+        color: "#6B7280",
+    },
     link: {
         textDecorationLine: "underline",
         color: "#0000FF",
@@ -83,6 +89,7 @@ const styles = StyleSheet.create({
     },
     icon: {
         marginRight: 4,
+        fontSize: 16,
         color: "#6B7280",
     },
     button: {

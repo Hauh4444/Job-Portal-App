@@ -66,7 +66,7 @@ const AuthScreen = ({ navigation }) => {
             </View>
         </View>
     );
-}
+};
 
 
 export default AuthScreen;

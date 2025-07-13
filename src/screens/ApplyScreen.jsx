@@ -7,12 +7,14 @@ import styles from "./ApplyScreen.styles";
 
 const ApplyScreen = ({ navigation, route }) => {
 
+    console.log(route.params.job);
+
     return (
         <ScrollView>
 
         </ScrollView>
-    )
-}
+    );
+};
 
 
 export default ApplyScreen;

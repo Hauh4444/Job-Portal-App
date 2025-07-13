@@ -49,12 +49,14 @@ const JobScreen = ({ navigation, route }) => {
                     <Text style={ styles.title }>
                         { job.title }
                     </Text>
+
                     <View style={ styles.row }>
-                        <Text style={ styles.text }>{job.company}</Text>
+                        <Text style={ styles.text }>{ job.company }</Text>
                         <Text style={ styles.dot }> • </Text>
-                        <Ionicons name="location-outline" size={16} style={ styles.icon } />
+                        <Ionicons name="location" style={ styles.icon } />
                         <Text style={ styles.text }>{ job.location }</Text>
                     </View>
+
                     <Text style={ styles.text }>
                         { job.employmentType } | { job.workModel }
                     </Text>
@@ -88,6 +90,7 @@ const JobScreen = ({ navigation, route }) => {
                     <Text style={ styles.head }>
                         Full Job Description
                     </Text>
+
                     <View style={ styles.row }>
                         <Text style={ styles.strongText }>
                             Position Title: &nbsp;
@@ -96,6 +99,7 @@ const JobScreen = ({ navigation, route }) => {
                             { job.title }
                         </Text>
                     </View>
+
                     <View style={ styles.row }>
                         <Text style={ styles.strongText }>
                             Position Location: &nbsp;
@@ -104,6 +108,11 @@ const JobScreen = ({ navigation, route }) => {
                             { job.location }
                         </Text>
                     </View>
+
+                    <Text style={ styles.description }>
+                        { job.descriptionLong }
+                    </Text>
+
                     <View style={ styles.row }>
                         <Text style={ styles.strongText }>
                             Roles and Responsibilities:
@@ -133,7 +142,7 @@ const JobScreen = ({ navigation, route }) => {
 
                 <View style={ styles.finalSection }>
                     { isAtBottom && (
-                        <Pressable>
+                        <Pressable onPress={ handleApply }>
                             <LinearGradient
                                 style={ styles.button }
                                 colors={ ["#7C3AED", "#6366F1"] }
@@ -162,8 +171,8 @@ const JobScreen = ({ navigation, route }) => {
                 </View>
             ) }
         </>
-    )
-}
+    );
+};
 
 
 export default JobScreen;
