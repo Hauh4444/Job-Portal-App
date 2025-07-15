@@ -1,5 +1,6 @@
 // External Libraries
-import { useEffect, useState } from "react";
+import {useCallback, useState} from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import { Pressable, ScrollView } from "react-native";
 import { SearchBar } from "react-native-elements";
 
@@ -49,31 +50,34 @@ const HomeScreen = ({ navigation }) => {
     }
 
 
-    useEffect(() => {
-        fetchData().catch((err) => console.error(err));
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            fetchData().catch((err) => console.error(err));
+        }, [])
+    );
 
 
-    useEffect(() => {
-        const query = search.trim().toLowerCase();
+    useFocusEffect(
+        useCallback(() => {
+            const query = search.trim().toLowerCase();
 
-        const filtered = jobs.filter(job => {
-            const matchesQuery = query
-                ? job.title.toLowerCase().includes(query) ||
-                job.descriptionShort.toLowerCase().includes(query)
-                : true;
+            const filtered = jobs.filter(job => {
+                const matchesQuery = query
+                    ? job.title.toLowerCase().includes(query) ||
+                    job.descriptionShort.toLowerCase().includes(query)
+                    : true;
 
-            const matchesCategory = selectedCategory !== "All"
-                ? job.employmentType.includes(selectedCategory) ||
-                job.workModel.includes(selectedCategory)
-                : true;
+                const matchesCategory = selectedCategory !== "All"
+                    ? job.employmentType.includes(selectedCategory) ||
+                    job.workModel.includes(selectedCategory)
+                    : true;
 
-            return matchesQuery && matchesCategory;
-        }
-        );
+                return matchesQuery && matchesCategory;
+            });
 
-        setFilteredJobs(filtered);
-    }, [selectedCategory, search]);
+            setFilteredJobs(filtered);
+        }, [selectedCategory, search])
+    );
 
 
     return (

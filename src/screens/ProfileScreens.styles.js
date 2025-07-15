@@ -15,7 +15,12 @@ const styles = StyleSheet.create({
         borderWidth: 1,
     },
     headRow: {
-        paddingBottom: 5,
+        paddingBottom: 15,
+        flexDirection: "row",
+        alignItems: "center",
+        justifyContent: "space-between",
+    },
+    contact: {
         flexDirection: "row",
         alignItems: "center",
         justifyContent: "space-between",
@@ -30,12 +35,12 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: "#111827",
     },
-    button: {
+    profileButton: {
         marginLeft: "auto",
         padding: 10,
         borderRadius: 50,
     },
-    buttonText: {
+    profileButtonText: {
         fontSize: 30,
         fontWeight: "600",
         color: "#E5E7EB",
@@ -45,9 +50,13 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#6B7280",
     },
-    icon: {
+    contactIcon: {
         marginRight: 4,
         fontSize: 16,
+        color: "#6B7280",
+    },
+    chevron: {
+        fontSize: 24,
         color: "#6B7280",
     },
     fileCard: {
@@ -79,7 +88,21 @@ const styles = StyleSheet.create({
     ellipsis: {
         fontSize: 30,
         color: "#6366F1",
-    }
+    },
+    button: {
+        width: "90%",
+        marginVertical: 5,
+        marginHorizontal: "auto",
+        paddingVertical: 20,
+        paddingHorizontal: 12,
+        borderRadius: 10,
+    },
+    buttonText: {
+        textAlign: "center",
+        fontSize: 20,
+        fontWeight: "600",
+        color: "#FFFFFF",
+    },
 });
 
 

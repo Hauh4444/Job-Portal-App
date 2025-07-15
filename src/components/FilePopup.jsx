@@ -32,7 +32,7 @@ const FilePopup = ({ file, onClose, onSubmit }) => {
 
                 <View style={ styles.content }>
                     <Text style={ styles.text }>
-                        { file }
+                        { file || "No File" }
                     </Text>
 
                     <Pressable style={ styles.button } onPress={ () => chooseFile() }>

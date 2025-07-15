@@ -6,6 +6,7 @@ import TabNavigator from "@/navigation/TabNavigator";
 import JobScreen from "@/screens/JobScreen";
 import ApplyScreen from "@/screens/ApplyScreen";
 import ViewFileScreen from "@/screens/ViewFileScreen";
+import EditContactScreen from "@/screens/EditContactScreen";
 
 
 const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ const ProtectedStack = () => (
         <Stack.Screen name="Job" component={ JobScreen } />
         <Stack.Screen name="Apply" component={ ApplyScreen } />
         <Stack.Screen name="View File" component={ ViewFileScreen } />
+        <Stack.Screen name="Edit Contact" component={ EditContactScreen } />
     </Stack.Navigator>
 );
 

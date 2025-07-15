@@ -1,5 +1,6 @@
 // External Libraries
-import { useEffect, useState } from "react";
+import {useCallback, useState} from "react";
+import { useFocusEffect } from "@react-navigation/native";
 import { View, ActivityIndicator, Text } from "react-native";
 import { WebView } from "react-native-webview";
 import * as FileSystem from "expo-file-system";
@@ -11,7 +12,7 @@ import axiosInstance from "@/utils/axiosInstance";
 import styles from "./ViewFileScreen.styles";
 
 
-const ViewFileScreen = ({ route }) => {
+const ViewFileScreen = ({ navigation, route }) => {
     const [fileUri, setFileUri] = useState(null);
     const [loading, setLoading] = useState(true);
 
@@ -23,8 +24,7 @@ const ViewFileScreen = ({ route }) => {
         });
 
         const binary = new Uint8Array(response.data).reduce(
-            (data, byte) => data + String.fromCharCode(byte),
-            ""
+            (data, byte) => data + String.fromCharCode(byte), ""
         );
         const base64Data = btoa(binary);
         const filePath = `${FileSystem.cacheDirectory}${route.params.file}`;
@@ -37,9 +37,11 @@ const ViewFileScreen = ({ route }) => {
     };
 
 
-    useEffect(() => {
-        fetchData().catch((err) => console.error(err));
-    }, []);
+    useFocusEffect(
+        useCallback(() => {
+            fetchData().catch((err) => console.error(err));
+        }, [])
+    );
 
 
     return (

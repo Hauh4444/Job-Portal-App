@@ -7,20 +7,19 @@ A mobile-first job portal application built with React Native, designed to conne
 
 ## Features 
 
-- User authentication with secure signup and login
-
-- Job listing and detailed job view
-
-- Responsive and accessible mobile UI
+- User authentication with secure signup and login 
+- Job listing and detailed job view 
+- Responsive and accessible mobile UI 
+- Profile view and editing 
+- Resume upload and management 
+- Contact information updating 
+- Applying to jobs directly through the platform
 
 ## Tech Stack
 
 - **Mobile:** React Native (JavaScript), Expo
-
 - **State Management:** Context API
-
 - **Backend:** REST API
-
 - **Storage:** SecureStorage
 
 ## Screenshots
@@ -33,15 +32,15 @@ Click to view:
 - [Job Page](./screenshots/light-theme/job-page1.png)
 - [Job Page Continued 1](./screenshots/light-theme/job-page2.png)
 - [Job Page Continued 2](./screenshots/light-theme/job-page3.png)
+- [Profile Page](./screenshots/light-theme/profile-page.png)
+- [View Resume Page](./screenshots/light-theme/view-resume-page.png)
+- [Edit Contact Page](./screenshots/light-theme/edit-contact-page.png)
 
 ## Prerequisites
 
 - Node.js v16 or higher
-
 - React Native development environment set up (Android Studio/Xcode)
-
 - Expo CLI
-
 - Backend API endpoint (configured separately)
 
 ## Setup 
