@@ -10,29 +10,11 @@ import { AuthContext } from "./AuthContext.js";
 import axiosInstance from "@/utils/axiosInstance.js";
 
 
-/**
- * Provides authentication state and methods to its children via context.
- *
- * Manages user info, authentication errors, and exposes async functions
- * for login, registration, logout, and auth status checking.
- *
- * @param { Object } props
- * @param { ReactNode } props.children - React children nodes.
- *
- * @component
- * @returns { JSX.Element } AuthProvider component wrapping children with AuthContext.
- */
 const AuthProvider = ({ children }) => {
-    // Holds the authenticated user data or null if not logged in
-    const [user, setUser] = useState(null);
-    // Holds the latest authentication error message, if any
+    const [user, setUser] = useState({});
     const [error, setError] = useState("");
 
 
-    /**
-     * Checks the current authentication status by requesting user data.
-     * Updates the user state with returned data or null on failure.
-     */
     const checkAuthStatus = async () => {
         try {
             const response = await axiosInstance.get("/auth/check_auth_status");
@@ -44,15 +26,6 @@ const AuthProvider = ({ children }) => {
     };
 
 
-    /**
-     * Attempts to log in with provided credentials.
-     * On success, updates user state by checking auth status.
-     * On failure, sets an error message.
-     *
-     * @param { Object } credentials - User login credentials { username, password }.
-     *
-     * @returns { Promise<boolean> } True if login succeeded, else false.
-     */
     const login = async (credentials) => {
         try {
             const response = await axiosInstance.post("/auth/login", credentials);
@@ -67,15 +40,6 @@ const AuthProvider = ({ children }) => {
     };
 
 
-    /**
-     * Attempts to register a new user with provided credentials.
-     * If successful, automatically logs in the new user.
-     * On failure, sets an error message.
-     *
-     * @param { Object } credentials - User registration credentials.
-     *
-     * @returns { Promise<boolean> } True if registration (and login) succeeded, else false.
-     */
     const register = async (credentials) => {
         try {
             await axiosInstance.post("/auth/register", credentials);
@@ -89,13 +53,6 @@ const AuthProvider = ({ children }) => {
     };
 
 
-    /**
-     * Logs out the current user by calling the logout endpoint.
-     * Clears the user state on success.
-     * Sets an error message on failure.
-     *
-     * @returns { Promise<void> }
-     */
     const logout = async () => {
         try {
             await axiosInstance.post("/auth/logout");
@@ -107,7 +64,6 @@ const AuthProvider = ({ children }) => {
     };
 
 
-    // Context JSX
     return (
         <AuthContext.Provider value={ { user, error, checkAuthStatus, login, register, logout } }>
             { children }

@@ -32,6 +32,7 @@ Click to view:
 - [Job Page](./screenshots/light-theme/job-page1.png)
 - [Job Page Continued 1](./screenshots/light-theme/job-page2.png)
 - [Job Page Continued 2](./screenshots/light-theme/job-page3.png)
+- [Apply Page](./screenshots/light-theme/apply-page.png)
 - [Profile Page](./screenshots/light-theme/profile-page.png)
 - [View Resume Page](./screenshots/light-theme/view-resume-page.png)
 - [Edit Contact Page](./screenshots/light-theme/edit-contact-page.png)

@@ -2,11 +2,11 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Internal Screens
-import TabNavigator from "@/navigation/TabNavigator";
-import JobScreen from "@/screens/JobScreen";
-import ApplyScreen from "@/screens/ApplyScreen";
-import ViewFileScreen from "@/screens/ViewFileScreen";
-import EditContactScreen from "@/screens/EditContactScreen";
+import TabNavigator from "@/navigation/Tabs/TabNavigator";
+import JobScreen from "@/screens/JobScreen/JobScreen";
+import ApplyScreen from "@/screens/ApplyScreen/ApplyScreen";
+import ViewFileScreen from "@/screens/ViewFileScreen/ViewFileScreen";
+import EditContactScreen from "@/screens/EditContactScreen/EditContactScreen";
 
 
 const Stack = createNativeStackNavigator();

@@ -2,7 +2,7 @@
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 // Internal Screens
-import AuthScreen from "@/screens/AuthScreen";
+import AuthScreen from "@/screens/AuthScreen/AuthScreen";
 
 
 const Stack = createNativeStackNavigator();

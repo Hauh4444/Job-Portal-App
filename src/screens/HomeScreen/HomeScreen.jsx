@@ -5,8 +5,8 @@ import { Pressable, ScrollView } from "react-native";
 import { SearchBar } from "react-native-elements";
 
 // Internal Components
-import CategoryChip from "@/components/CategoryChip";
-import JobCard from "@/components/JobCard";
+import CategoryChip from "@/components/CategoryChip/CategoryChip";
+import JobCard from "@/components/JobCard/JobCard";
 
 // Internal Utilities
 import axiosInstance from "@/utils/axiosInstance";

@@ -1,12 +1,16 @@
 // External Libraries
 import { useState, useCallback } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
+import { useFocusEffect } from "@react-navigation/native";
 import Hyperlink from "react-native-hyperlink";
 import { openComposer } from "react-native-email-link";
 import { LinearGradient } from "expo-linear-gradient";
 
 // External Icons
 import Ionicons from "react-native-vector-icons/Ionicons";
+
+// Internal Utilities
+import axiosInstance from "@/utils/axiosInstance";
 
 // Styles
 import styles from "./JobScreen.styles";
@@ -15,6 +19,24 @@ import styles from "./JobScreen.styles";
 const JobScreen = ({ navigation, route }) => {
     const job = route.params.job;
     const [isAtBottom, setIsAtBottom] = useState(false);
+    const [hasApplied, setHasApplied] = useState(false);
+
+
+    const fetchData = async () => {
+        const response = await axiosInstance.get("/jobs/applied", {
+            params: {
+                jobId: job.id,
+            }
+        });
+        setHasApplied(response.data.applied);
+    };
+
+
+    useFocusEffect(
+        useCallback(() => {
+            fetchData().catch((err) => console.error(err));
+        }, [])
+    );
 
 
     const handleScroll = useCallback((event) => {
@@ -60,6 +82,12 @@ const JobScreen = ({ navigation, route }) => {
                     <Text style={ styles.text }>
                         { job.employmentType } | { job.workModel }
                     </Text>
+
+                    { hasApplied && (
+                        <View style={ styles.appliedCard }>
+                            <Text style={ styles.appliedCardText }>Applied</Text>
+                        </View>
+                    ) }
                 </View>
 
                 <View style={ styles.section }>
@@ -140,23 +168,25 @@ const JobScreen = ({ navigation, route }) => {
                     </View>
                 </View>
 
-                <View style={ styles.finalSection }>
-                    { isAtBottom && (
-                        <Pressable onPress={ handleApply }>
-                            <LinearGradient
-                                style={ styles.button }
-                                colors={ ["#7C3AED", "#6366F1"] }
-                                start={{ x: 0, y: 0 }}
-                                end={{ x: 1, y: 0 }}
-                            >
-                                <Text style={ styles.buttonText }>APPLY NOW</Text>
-                            </LinearGradient>
-                        </Pressable>
-                    ) }
-                </View>
+                { !hasApplied && (
+                    <View style={ styles.finalSection }>
+                        { isAtBottom && (
+                            <Pressable onPress={ handleApply }>
+                                <LinearGradient
+                                    style={ styles.button }
+                                    colors={ ["#7C3AED", "#6366F1"] }
+                                    start={{ x: 0, y: 0 }}
+                                    end={{ x: 1, y: 0 }}
+                                >
+                                    <Text style={ styles.buttonText }>APPLY NOW</Text>
+                                </LinearGradient>
+                            </Pressable>
+                        ) }
+                    </View>
+                ) }
             </ScrollView>
 
-            { !isAtBottom && (
+            { !hasApplied && !isAtBottom && (
                 <View style={ styles.footer }>
                     <Pressable onPress={ handleApply }>
                         <LinearGradient

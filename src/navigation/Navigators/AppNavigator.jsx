@@ -4,11 +4,11 @@ import { View, ActivityIndicator } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 
 // Internal Navigation
-import PublicStack from "@/navigation/PublicStack";
-import ProtectedStack from "@/navigation/ProtectedStack";
+import PublicStack from "@/navigation/Stacks/PublicStack";
+import ProtectedStack from "@/navigation/Stacks/ProtectedStack";
 
 // Internal Contexts
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/contexts/Auth/AuthContext";
 
 
 const AppNavigator = () => {

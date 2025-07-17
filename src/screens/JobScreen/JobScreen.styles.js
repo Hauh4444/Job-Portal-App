@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
         fontWeight: "600",
         color: "#111827",
     },
+    text: {
+        fontSize: 16,
+        color: "#111827",
+    },
     card: {
         marginVertical: 5,
         padding: 10,
@@ -57,6 +61,21 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: "#111827",
     },
+    appliedCard: {
+        marginTop: 10,
+        paddingVertical: 5,
+        paddingHorizontal: 10,
+        alignSelf: "flex-start",
+        backgroundColor: "#6366F1",
+        borderColor: "#6366F1",
+        borderWidth: 1,
+        borderRadius: 8,
+    },
+    appliedCardText: {
+        fontWeight: "normal",
+        fontSize: 16,
+        color: "#FFFFFF",
+    },
     row: {
         paddingVertical: 5,
         flexDirection: "row",
@@ -66,11 +85,6 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: "600",
         color: "#111827",
-    },
-    text: {
-        fontWeight: "normal",
-        fontSize: 16,
-        color: "#6B7280",
     },
     description: {
         marginVertical: 10,

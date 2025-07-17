@@ -5,7 +5,7 @@ import { LinearGradient } from "expo-linear-gradient";
 import SHA256 from "crypto-js/sha256";
 
 // Internal Contexts
-import { useAuth } from "@/contexts/AuthContext";
+import { useAuth } from "@/contexts/Auth/AuthContext";
 
 // Styles
 import styles from "./AuthScreen.styles";

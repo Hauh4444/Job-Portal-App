@@ -1,6 +1,6 @@
-// navigation/tabsConfig.js
-import HomeScreen from "@/screens/HomeScreen";
-import ProfileScreen from "@/screens/ProfileScreen";
+// Internal Screens
+import HomeScreen from "@/screens/HomeScreen/HomeScreen";
+import ProfileScreen from "@/screens/ProfileScreen/ProfileScreen";
 
 
 export const tabs = [
